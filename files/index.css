@@ -1,0 +1,23 @@
+
+#header{
+    display: block;
+    background-color: rgb(8, 102, 94);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+#body{
+    background-color: rgb(54, 54, 54);
+    color: aliceblue;
+    border-radius: 10px;
+    padding:5vh;
+    
+   
+
+
+}
+.code{
+    background-color: rgb(185, 179, 179);
+    color: black;
+}

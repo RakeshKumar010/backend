@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="files/index.css">
+    <title>Mongoose</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Mongoose tutorial</h1>
+    </div>
+    
+    <div id="body">
+        <h2>Mongoose setup</h2>
+        <p> <strong>Step 1 : </strong> First be sure you have MongoDB and Node.js installed.</p>
+        <p><strong>Step 2 : </strong> Next install Mongoose from the command line using npm:</p>
+        <div class="code">
+            <p>npm install mongoose</p>
+        </div>
+        <p><strong>Step 3 : </strong>  Import the mongoose module.</p>
+        <div class="code">
+            <p>:-const mongoose = require('mongoose');</p>
+        </div>
+        <p><strong>Step 4 : </strong>Connection creation and creating a new database.</p>
+        <div class="code">
+            <p>:-const mongoose = require('mongoose');<br>
+
+                 main().catch(err => console.log(err)).then(()=> console.log("connection succesfull.."));<br>
+                
+                 async function main() {<br>
+                 await mongoose.connect('mongodb://localhost:27017/dbname');<br>
+                
+                 }</p>
+        </div>
+       
+        <p><strong>Step 5 : </strong> Defines the structure of the documents with the help of <em> schema.</em></p>
+        <div class="code">
+            <p>:- const playlistSchema=new mongoose.Schema({<br>
+                &nbsp;&nbsp; name:{<br>
+                &nbsp;&nbsp;&nbsp;type: String,<br>
+                &nbsp;&nbsp;&nbsp;required: true <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}, <br>
+                &nbsp;&nbsp;ctype:String, <br>
+                &nbsp;&nbsp;videos:Number, <br>
+                &nbsp;&nbsp;author:String, <br>
+                &nbsp;&nbsp;active:Boolean, <br>
+                &nbsp;&nbsp;date:{ <br>
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;type:Date, <br>
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default:Date.now <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+            
+            })</p>
+        </div>
+
+        <p><strong>Step 6 : </strong>collection creation with the help of <em>model</em></p>
+        <div class="code">
+            <p>const Playlist = new mongoose.model("Playlist",playlistSchema);</p>
+        </div>
+
+        <p><strong>Step 7 : </strong>Create and insert documents</p>
+        <p><strong>(1) </strong> Insert one document</p>
+       
+        <div class="code">
+            <p>Playlist({ <br>
+                &nbsp;&nbsp;&nbsp; name:"React JS", <br>
+                &nbsp;&nbsp;&nbsp; ctype:"Front End", <br>
+                &nbsp;&nbsp;&nbsp; videos:80, <br>
+                &nbsp;&nbsp;&nbsp; author:"Thapa Technical", <br>
+                &nbsp;&nbsp;&nbsp; active: true <br>
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;   }).save()</p>
+        </div>
+        <p><strong>(2) </strong> Insert many document</p>
+       
+        <div class="code">
+            <p>const htmlPlaylist=new Playlist({ <br>
+                &nbsp;&nbsp;&nbsp;name:"html",<br>
+                &nbsp;&nbsp;&nbsp;ctype:"Front End",<br>
+                &nbsp;&nbsp;&nbsp;videos:80, <br>
+                &nbsp;&nbsp;&nbsp;author:"Thapa Technical", <br>
+                &nbsp;&nbsp;&nbsp;active: true <br>
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }) <br>
+            const nodePlaylist=new Playlist({ <br>
+                &nbsp;&nbsp;&nbsp;name:"node JS", <br>
+                &nbsp;&nbsp;&nbsp;ctype:"Front End", <br>
+                &nbsp;&nbsp;&nbsp;videos:80, <br>
+                &nbsp;&nbsp;&nbsp;author:"Thapa Technical", <br>
+                &nbsp;&nbsp;&nbsp;active: true <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}) <br>
+            const mongoDBPlaylist=new Playlist({<br>
+                &nbsp;&nbsp;&nbsp;name:"mongoDB", <br>
+                &nbsp;&nbsp;&nbsp;ctype:"Front End", <br>
+                &nbsp;&nbsp;&nbsp;videos:80, <br>
+                &nbsp;&nbsp;&nbsp;author:"Thapa Technical", <br>
+                &nbsp;&nbsp;&nbsp;active: true <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}) <br>
+            const mongoosPlaylist=new Playlist({ <br>
+                &nbsp;&nbsp;&nbsp;name:"mongoos", <br>
+                &nbsp;&nbsp;&nbsp;ctype:"Front End", <br>
+                &nbsp;&nbsp;&nbsp;videos:80, <br>
+                &nbsp;&nbsp;&nbsp;author:"Thapa Technical", <br>
+                &nbsp;&nbsp;&nbsp;active: true <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}) <br>
+            Playlist.insertMany([htmlPlaylist,nodePlaylist,mongoDBPlaylist,mongoosPlaylist]);</p>
+
+        </div>
+
+    </div>
+
+       
+
+
+  
+</body>
+</html>
